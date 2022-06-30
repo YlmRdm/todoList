@@ -1,0 +1,23 @@
+version: '3.9'
+
+services:
+  postgres:
+    image: postgres
+    restart: unless-stopped
+    hostname: synth-postgres
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=todo
+      - POSTGRES_PASSWORD=WPeGKscwzAvrJ53MnKm0
+      - POSTGRES_DB=todoDB
+    volumes:
+      - type: volume
+        source: postgres_data
+        target: /var/lib/postgresql/data
+        volume:
+          nocopy: true
+
+volumes:
+  postgres_data:
+
